@@ -9,10 +9,10 @@ public class App {
         var context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         Car car = context.getBean(Car.class);
-        String hello = context.getBean(String.class);
+        Person person = context.getBean(Person.class);
 
-        System.out.println(car.getName());
-        System.out.println(hello);
+        System.out.println(car);
+        System.out.println(person);
 
         context.close();
     }

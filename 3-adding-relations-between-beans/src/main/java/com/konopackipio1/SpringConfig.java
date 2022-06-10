@@ -16,8 +16,11 @@ public class SpringConfig {
     }
 
     @Bean
-    String stringHello() {
-        return new String("hello");
+    Person person() {
+        Person person = new Person("Piotr");
+        // Wiring beans through code
+        person.setCar(car());
+        return person;
     }
 
 }

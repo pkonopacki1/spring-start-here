@@ -15,11 +15,21 @@ public class SpringConfig {
         return car;
     }
 
+    // Below two alternative ways of wiring beans
+    // #1 alternative, using car() method
+    // @Bean
+    // Person person() {
+    // Person person = new Person("Piotr");
+    // // Wiring beans through code
+    // person.setCar(car());
+    // return person;
+    // }
+
+    // #2 alterantive, creating method with parameter
     @Bean
-    Person person() {
+    Person person(Car car) {
         Person person = new Person("Piotr");
-        // Wiring beans through code
-        person.setCar(car());
+        person.setCar(car);
         return person;
     }
 

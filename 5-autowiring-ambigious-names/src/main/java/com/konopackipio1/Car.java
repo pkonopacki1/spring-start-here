@@ -1,12 +1,11 @@
 package com.konopackipio1;
 
 import org.springframework.stereotype.Component;
-
-import lombok.Data;
+import lombok.ToString;
 
 @Component
-@Data
-public abstract class Car {
+@ToString
+public class Car {
 
     private String name = "Zaba";
 

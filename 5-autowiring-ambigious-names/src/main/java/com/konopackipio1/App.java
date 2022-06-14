@@ -8,8 +8,10 @@ public class App {
         // Creating context and choosing the configuration class
         var context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
+        Car car = context.getBean(Car.class);
         Person person = context.getBean(Person.class);
 
+        System.out.println(car);
         System.out.println(person);
 
         context.close();

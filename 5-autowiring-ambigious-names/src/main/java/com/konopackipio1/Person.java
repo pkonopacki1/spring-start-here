@@ -1,7 +1,6 @@
 package com.konopackipio1;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import lombok.ToString;
@@ -11,7 +10,7 @@ import lombok.ToString;
 public class Person {
 
     @Autowired
-    public Person(@Qualifier("electricCar") Car car) {
+    public Person(Car car) {
         this.car = car;
     }
 

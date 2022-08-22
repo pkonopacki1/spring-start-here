@@ -1,18 +1,25 @@
 package com.konopackipio1.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.konopackipio1.repositories.CommentRepository;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @Service
+@Lazy
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @Getter
-@RequiredArgsConstructor
 public class CommentService {
 
     private final CommentRepository commentRepository;
+
+    public CommentService(CommentRepository commentRepository) {
+        this.commentRepository = commentRepository;
+        System.out.println("Comment service created");
+    }
 
 }

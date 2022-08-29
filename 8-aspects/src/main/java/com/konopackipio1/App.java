@@ -16,6 +16,7 @@ public class App {
         comment.setAuthor("Waldi");
 
         service.publishComment(comment);
+        service.deleteComment(comment);
 
         context.close();
     }

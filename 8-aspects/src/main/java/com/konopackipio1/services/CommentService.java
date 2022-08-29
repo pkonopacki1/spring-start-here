@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import org.springframework.stereotype.Service;
 
+import com.konopackipio1.aspects.ToLog;
 import com.konopackipio1.models.Comment;
 
 @Service
@@ -13,6 +14,11 @@ public class CommentService {
 
     public void publishComment(Comment comment) {
         logger.info("Publishing comment: " + comment.getText());
+    }
+
+    @ToLog
+    public void deleteComment(Comment comment) {
+        logger.info("Deleting comment: " + comment);
     }
 
 }

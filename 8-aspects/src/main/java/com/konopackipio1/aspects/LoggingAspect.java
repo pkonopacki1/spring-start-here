@@ -15,17 +15,24 @@ public class LoggingAspect {
 
     private Logger logger = Logger.getLogger(LoggingAspect.class.getName());
 
-    @Around("execution(* com.konopackipio1.services.*.*(..))")
-    public void log(ProceedingJoinPoint joinPoint) throws Throwable {
-        logger.info("Method will execute");
-        Object[] args = joinPoint.getArgs();
-        for (Object object : args) {
-            if (object instanceof Comment) {
-                inerceptComment(object);
-            }
-        }
+    // @Around("execution(* com.konopackipio1.services.*.*(..))")
+    // public void log(ProceedingJoinPoint joinPoint) throws Throwable {
+    // logger.info("Method will execute");
+    // Object[] args = joinPoint.getArgs();
+    // for (Object object : args) {
+    // if (object instanceof Comment) {
+    // inerceptComment(object);
+    // }
+    // }
+    // joinPoint.proceed();
+    // logger.info("Method executed");
+    // }
+
+    @Around("@annotation(ToLog)")
+    public void logAnnotated(ProceedingJoinPoint joinPoint) throws Throwable {
+        logger.info("ANNOTATED LOGGER");
         joinPoint.proceed();
-        logger.info("Method executed");
+
     }
 
     private void inerceptComment(Object object) {
